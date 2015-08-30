@@ -211,6 +211,10 @@ module.exports = function (content) {
         opt.outputStyle = 'compressed';
     }
 
+    if (this.options.sass && this.options.sass.functions && typeof opt.functions !== 'object') {
+      opt.functions = this.options.sass.functions;
+    }
+
     // opt.sourceMap
     // Not using the `this.sourceMap` flag because css source maps are different
     // @see https://github.com/webpack/css-loader/pull/40
